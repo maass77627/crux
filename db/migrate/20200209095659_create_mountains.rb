@@ -1,4 +1,9 @@
 class CreateMountains < ActiveRecord::Migration
   def change
-  end
+    create_table :mountains do |t|
+      t.string :name 
+      t.string :content 
+      t.index :user_id
+    end 
+ end
 end
