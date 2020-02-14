@@ -1,10 +1,21 @@
 require './config/environment'
 
-class UserController < Sinatra::Base
-  
+class UserController < ApplicationController
+
+#purpose of route is to render the login page/form
+get '/login' do
+  erb: login
+
+end
+
+get '/signup' do
+
+end
+
+
   get '/users' do
     @users = User.all
-    erb :'/users/index' 
+    erb :'/users/index'
   end
-  
-end 
+
+end
