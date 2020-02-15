@@ -11,18 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200209095659) do
+ActiveRecord::Schema.define(version: 20200215011730) do
 
   create_table "mountains", force: :cascade do |t|
-    t.string "name"
-    t.string "content"
+    t.string  "name"
+    t.string  "content"
+    t.integer "user_id"
   end
-
-  add_index "mountains", [nil], name: "index_mountains_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

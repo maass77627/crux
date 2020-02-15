@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
-  has_secure_password
   has_many :mountains 
+  
+  has_secure_password
+  
+ 
+  
 end
