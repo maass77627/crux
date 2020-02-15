@@ -2,9 +2,6 @@ require './config/environment'
 
 class UserController < ApplicationController
 
-#purpose of route is to render the login page/form
-
-  
   get "/signup" do
 		erb :signup
 	end
@@ -24,39 +21,41 @@ end
 		erb :login
 	end
 
-#creating a session or adding key value pair to session hash 
-#recieve the login form, find the user and log the user in (create a session)
 	post "/login" do
 		user = User.find_by(:username => params[:username])
 
 		  if user && user.authenticate(params[:password])
 		    session[:user_id] = user.id
-		    redirect "/success"
+		    #redirect "/success"
 		  else
-		    redirect "/failure"
+		    #redirect "/failure"
 		  end
 	end
 
-	get "/success" do
-		if logged_in?
-			erb :success
-		else
-			redirect "/login"
-		end
-	end
-
-	get "/failure" do
-		erb :failure
-	end
 
 	get "/logout" do
 		session.clear
 		redirect "/"
 	end
-
 	
+	get '/users/:id' do 
+	  @user = User.find_by(id: params[:id])
+	  erb :'/users/show' 
+	  
+	end 
+	
+	end 
+	
+#	get "/success" do
+	#	if logged_in?
+		#	erb :success
+	#	else
+		#	redirect "/login"
+	#	end
+#	end
 
-
-
-
-end
+#	get "/failure" do
+	#	erb :failure
+	#end
+	#creating a session or adding key value pair to session hash 
+#recieve the login form, find the user and log the user in
