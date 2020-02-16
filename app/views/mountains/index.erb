@@ -5,7 +5,9 @@
   
    <ul>
     <% @mountains.each do |mountain| %>
-        <li><%= mountain %></li>
+        <li><%= mountain.name %>
+        <%= mountain.content %>
+        </li>
         <% end %>
       </ul>
   
