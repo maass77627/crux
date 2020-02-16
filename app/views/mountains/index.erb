@@ -1,15 +1,23 @@
 
 <html>
   
-  <h1>Hello World!</h1>
+ <div align="center">
+   <h1>YOUR PEAKS!</h1>
   
    <ul>
     <% @mountains.each do |mountain| %>
-        <li><%= mountain.name %>
-        <%= mountain.content %>
+        <li> <a href='/mountains/:id'><%= mountain.name %></a>
         </li>
         <% end %>
       </ul>
-  
-  
+</div> 
 </html>
+
+<style>
+body {
+  background-image: url('https://i.dlpng.com/static/png/1670766-mount-snow-mountain-peak-pattern-mountain-png-image-and-clipart-mountain-png-650_365_preview.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
