@@ -28,7 +28,7 @@ get '/mountains/:id/edit' do  #load edit form
  
 patch '/mountains/:id' do #edit action
   @mountain = Mountain.find_by_id(params[:id])
-  @mountain.title = params[:name]
+  @mountain.name = params[:name]
   @mountain.content = params[:content]
   @mountain.save
   redirect to "/mountains/#{@mountain.id}"

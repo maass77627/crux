@@ -6,7 +6,8 @@
   
    <ul>
     <% @mountains.each do |mountain| %>
-        <li> <a href='/mountains/:id'><%= mountain.name %></a>
+    <% @mountain = mountain %>
+        <li> <a href='/mountains/<%= @mountain.id %>'><%= mountain.name %></a>
         </li>
         <% end %>
       </ul>

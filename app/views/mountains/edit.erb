@@ -1,6 +1,9 @@
+<h2><%= @mountain.name %></h2><b>
+<h2><%= @mountain.content %></h2>
+
 <form action="/mountains/<%= @mountain.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="text" name="name">
-  <input type="text" name="content">
+ Name: <input type="text" name="name">
+ Content: <input type="text" name="content">
   <input type="submit" value="submit">
 </form>
