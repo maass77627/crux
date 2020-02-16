@@ -1,10 +1,10 @@
 require './config/environment'
 
-class MountainController < Sinatra::Base
+class MountainController < ApplicationController
   
   get '/mountains' do
     @mountains = Mountain.all
-    erb :'/mountains/index' 
+    erb :'/mountains/index'
   end
   
   get '/mountains/new' do
