@@ -12,7 +12,7 @@ class UserController < ApplicationController
   if user.save
     redirect "/login"
   else
-    redirect "/failure"
+    redirect "/signup"
   end
 end
 
@@ -22,13 +22,14 @@ end
 	end
 
 	post "/login" do
-		user = User.find_by(:username => params[:username])
+		@user = User.find_by(:username => params[:username])
 
-		  if user && user.authenticate(params[:password])
-		    session[:user_id] = user.id
-		    #redirect "/success"
+		  if @user.authenticate(params[:password])
+		    session[:user_id] = @user.id
+		    puts session 
+		    redirect "/users/:#{@user.id}"
 		  else
-		    #redirect "/failure"
+		    redirect "/login"
 		  end
 	end
 
@@ -38,11 +39,15 @@ end
 		redirect "/"
 	end
 	
-	get '/users/:id' do 
-	  @user = User.find_by(id: params[:id])
-	  erb :'/users/show' 
-	  
+	get '/users/:user_id' do 
+	  @user = User.find_by(params[:id])
+	  erb :show  
+	  #binding.pry
 	end 
+	
+		get "/failure" do
+		erb :failure
+	end
 	
 	end 
 	
