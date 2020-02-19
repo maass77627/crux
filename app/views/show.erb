@@ -1,4 +1,4 @@
-<form action="/users/<%= @user.id %>" method="post">
+<form action="/users/<%= #{@user.id} %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <%= @user.username %>
   <%= @user.password %>
@@ -6,13 +6,12 @@
 </form>
 
 <h1><%= @user.username %></h1>
-<h3>Mountains:</h3>
+ <h3>Mountains:</h3>
 <p><%= @user.mountains %></p>
 
-<form method="post" action="/users/<%= @user.id %>">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-</form>
+
+
+
 
 
 
