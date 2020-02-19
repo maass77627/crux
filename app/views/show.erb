@@ -1,10 +1,20 @@
-<h1><%= @user.username  %>'s show page</h1>
+<form action="/users/<%= @user.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <%= @user.username %>
+  <%= @user.password %>
+  <input type="submit" value="delete">
+</form>
+
+<h1><%= @user.username %></h1>
+<h3>Mountains:</h3>
+<p><%= @user.mountains %></p>
 
 <form method="post" action="/users/<%= @user.id %>">
   <input id="hidden" type="hidden" name="_method" value="delete">
- <h1><%= @user.username %></h1>
   <input type="submit" value="delete">
-</form> 
+</form>
+
+
 
 <style>
 body {

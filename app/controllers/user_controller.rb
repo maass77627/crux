@@ -22,35 +22,34 @@ end
 	end
 
 	post "/login" do
-		@user = User.find_by(:username => params[:username])
+    @user = User.find_by(:username => params[:username])
 
-		  if @user.authenticate(params[:password])
-		    session[:user_id] = @user.id
-		    puts session 
-		    redirect "/users/:#{@user.id}"
-		  else
-		    redirect "/login"
-		  end
-	end
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect "/users/:#{@user.id}"
+      else
+        redirect "/login"
+      end
+    end
 
 
 	get "/logout" do
 		session.clear
 		redirect "/"
 	end
-	
-	get '/users/:user_id' do 
-	  @user = User.find_by(params[:id])
-	  erb :show  
+
+	get '/users/:id' do
+	  @user = User.find_by(id: params[:id])
+	  erb :show
 	  #binding.pry
-	end 
-	
-		get "/failure" do
-		erb :failure
 	end
-	
-	end 
-	
+
+		#get "/failure" do
+		#erb :failure
+	#end
+
+	end
+
 #	get "/success" do
 	#	if logged_in?
 		#	erb :success
@@ -62,5 +61,5 @@ end
 #	get "/failure" do
 	#	erb :failure
 	#end
-	#creating a session or adding key value pair to session hash 
+	#creating a session or adding key value pair to session hash
 #recieve the login form, find the user and log the user in
