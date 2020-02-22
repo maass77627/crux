@@ -6,7 +6,7 @@ class UserController < ApplicationController
     if logged_in?
       redirect to "/users/#{current_user.id}"
     else
-      erb :signup
+      erb :'users/signup'
     end
   end
 
@@ -14,7 +14,7 @@ class UserController < ApplicationController
 	    if logged_in?
 	      redirect to "/users/#{current_user.id}"
 	    else
-	      erb :login
+	      erb :'users/login'
 	    end
 	  end
 
@@ -44,7 +44,7 @@ class UserController < ApplicationController
 	  get '/users/:id' do
 	    @user = User.find_by_id(params[:id])
 	    if logged_in? && @user == current_user
-	      erb :show
+	      erb :'users/show'
 	    else
 	      redirect to '/login'
 	    end
@@ -54,7 +54,7 @@ class UserController < ApplicationController
 	  get '/users/:id/edit' do
 	    @user = User.find_by_id(params[:id])
 	    if logged_in? && @user == current_user
-	      erb :edit 
+	      erb :'users/edit'
 	    else
 	      redirect to '/login'
 	    end

@@ -1,8 +1,11 @@
 <h1 ><strong><%= @user.username %> gets sendy!</strong></h1>
-<h2>Your Summits:</h2>
-<% @user.mountains.each do |mountain| %>
-<a href='/mountains/<% @mountain.id %>'><%= mountain.name %></a>
-  <% end %>
+
+  <h2>Your Mountains</h2>
+   <% @user.mountains.each do |mountain| %>
+     <p><%= mountain.name %> - <a href="/mountains/<%= mountain.id %>">View</a> / <a href="/mountains/<%= mountain.id %>/edit">Edit</a></p>
+   <% end %>
+     <p><a href="/mountains/new">Add mountain</a></p>
+
 
   <style>
   body {
