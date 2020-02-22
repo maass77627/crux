@@ -1,1 +1,6 @@
-<%= @user.username %>
+<h1 ><strong><%= @user.username %> gets sendy!</strong></h1>
+<h2>Your Summits:</h2>
+<% @user.mountains.each do |mountain| %>
+<a href='/mountains/<% @mountain.id %>'><%= mountain.name %></a>
+  <% end %>
+
