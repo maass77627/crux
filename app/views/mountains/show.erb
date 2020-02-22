@@ -1,4 +1,4 @@
-<%= @mountain.name %>
+<%= @mountain.name %><b>
 <%= @mountain.content %>
 
 <form action="/mountains/<%= @mountain.id %>" method="post">
@@ -6,7 +6,8 @@
   <input type="submit" value="delete">
 </form>
 
- <a href="/mountains/<%= @mountain.id %>/edit">Edit Mountain</a>
+ <a style="color:Black;" href="/mountains/<%= @mountain.id %>/edit">Edit Mountain</a>
+ <a style="color:Black;" href="/mountains">Back to Mountains</a>
 
 <style>
 body {
