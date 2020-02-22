@@ -1,5 +1,6 @@
-<%= @mountain.name %><b>
-<%= @mountain.content %>
+<h2>Mountain: <%= @mountain.name %></h2>
+<h3>Content: <%= @mountain.content %></h3>
+<h4>Added By: <%= @mountain.user.username %></h4>
 
 <form action="/mountains/<%= @mountain.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
@@ -15,6 +16,6 @@ body {
   background-image: url('https://theundefeated.com/wp-content/uploads/2017/04/ht8a3086x.jpg?w=1500');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100% 120%;
 }
 </style>
