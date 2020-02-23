@@ -12,13 +12,8 @@ class MountainController < ApplicationController
   erb :'/mountains/new'
     else
       redirect '/'
-end
-end
-
-#post '/mountains' do
-#  @mountain = Mountain.create(:name => params[:name], :content => params[:content])
-#  redirect to "/mountains/#{@mountain.id}"
-#end
+    end
+  end
 
 post '/mountains' do
     @mountain = Mountain.find_or_create_by(name: params[:name].strip, content: params[:content].strip, user_id: current_user.id)
@@ -42,14 +37,6 @@ get '/mountains/:id/edit' do  #load edit form
       redirect to "/mountains/#{@mountain.id}"
   end
 end
-
-#patch '/mountains/:id' do #edit action
-#  @mountain = Mountain.find_by_id(params[:id])
-  #@mountain.name = params[:name]
-#  @mountain.content = params[:content]
-#  @mountain.save
-#  redirect to "/mountains/#{@mountain.id}"
-#end
 
 patch '/mountains/:id' do
    @mountain = Mountain.find_by_id(params[:id])
