@@ -1,4 +1,4 @@
-<h1 ><strong><%= @user.username %> gets sendy!</strong></h1>
+<h1 ><strong><%= @user.username.capitalize %> gets sendy!</strong></h1>
 
   <h2>Your Mountains</h2>
    <% @user.mountains.each do |mountain| %>
@@ -6,12 +6,11 @@
    <% end %>
      <p><a href="/mountains/new">Add mountain</a></p>
 
-
   <style>
   body {
     background-image: url('https://mojagear.com/wp-content/uploads/2017/03/Cape_Fear-min.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 110% 110%;
+    background-size: 120% 130%;
   }
   </style>

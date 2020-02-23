@@ -1,5 +1,6 @@
 <h2>Mountain: <%= @mountain.name %></h2>
 <h3>Content: <%= @mountain.content %></h3>
+<% if logged_in? && current_user.mountains.include?(@mountain)%>
 <h4>Added By: <%= @mountain.user.username %></h4>
 
 <form action="/mountains/<%= @mountain.id %>" method="post">
@@ -10,6 +11,8 @@
  <a style="color:Black;" href="/mountains/<%= @mountain.id %>/edit">Edit Mountain</a>
  <a style="color:Black;" href="/mountains">Back to Mountains</a>
  <a style="color:Black;" href="/users/show">My Page</a>
+
+ <%end%>
 
 <style>
 body {
