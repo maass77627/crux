@@ -52,7 +52,7 @@ patch '/mountains/:id' do
 
 delete '/mountains/:id' do #delete action
     @mountain = Mountain.find_by_id(params[:id])
-  if logged_in? && current_user.mountainss.include?(@mountain)
+  if logged_in? && current_user.mountains.include?(@mountain)
     @mountain.delete
     redirect to '/mountains'
   else
