@@ -31,14 +31,16 @@ class UserController < ApplicationController
 
 
 	  post '/signup' do
-	      @user = User.new(username: params[:username])
-	    if @user.save && @user.authenticate(params[:password])
+      if params[:username] == "" || params[:password] == ""
+         redirect '/signup'
+      else
+        @user = User.new(username: params[:username], password: params[:password])
+	    if @user.save
 	      session[:user_id] = @user.id
 	      redirect to "/users/#{@user.id}"
-	    else
-	      redirect to '/signup'
 	    end
 	  end
+  end
 
     get '/users/:id' do
 	       @user = User.find_by_id(params[:id])
