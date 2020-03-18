@@ -16,6 +16,9 @@ class MountainController < ApplicationController
   end
 
 post '/mountains' do
+  if params[:content] == "" || params[:name] == ""
+    redirect to "/mountains/new"
+  else
     @mountain = Mountain.find_or_create_by(name: params[:name].strip, content: params[:content].strip, user_id: current_user.id)
     if @mountain.save && @mountain.valid?
       redirect to "/mountains/#{@mountain.id}"
@@ -23,6 +26,7 @@ post '/mountains' do
       redirect to '/mountains/new'
     end
   end
+end
 
 get '/mountains/:id' do
   @mountain = Mountain.find_by_id(params[:id])
