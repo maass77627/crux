@@ -39,8 +39,13 @@ get '/mountains/:id/edit' do  #load edit form
 end
 
 patch '/mountains/:id' do
+  #if logged_in?
+    if params[:content] == ""
+      redirect to "/mountains/#{params[:id]}/edit"
+    else
+
    @mountain = Mountain.find_by_id(params[:id])
-   @mountain.name = Mountain.find_or_create_by(name: params[:name].strip, user_id: current_user.id)
+   @mountain.name = params[:name]
    @mountain.content = params[:content].strip
    if logged_in? && current_user.mountains.include?(@mountain)
      @mountain.save
@@ -49,6 +54,8 @@ patch '/mountains/:id' do
      redirect to "/mountains/new"
    end
  end
+ end
+
 
 delete '/mountains/:id' do #delete action
     @mountain = Mountain.find_by_id(params[:id])
