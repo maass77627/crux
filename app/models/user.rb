@@ -1,8 +1,20 @@
 class User < ActiveRecord::Base
-  has_many :mountains 
-  
+
+  validates :username, :password, presence: true
+  validates :username, :password, uniqueness: true
+
+  has_many :mountains
+
   has_secure_password
-  
- 
-  
+
+  def authenticate(password)
+   if self.password == password
+     self
+   else
+     false
+   end
+ end
+
+
+
 end
