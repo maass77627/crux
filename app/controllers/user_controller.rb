@@ -29,7 +29,7 @@ class UserController < ApplicationController
 	  end
 
 post '/signup' do
-    @user = User.new(username: params[:username].strip, password: params[:password].strip)
+       @user = User.new(username: params[:username].strip, password: params[:password].strip)
     if @user.save
       session[:user_id] = @user.id
       redirect to "/users/#{@user.id}"
