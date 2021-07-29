@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20200215011730) do
 
   create_table "mountains", force: :cascade do |t|
     t.string  "name"
+    t.string  "address"
+    t.string  "img_url"
     t.string  "content"
     t.integer "user_id"
   end

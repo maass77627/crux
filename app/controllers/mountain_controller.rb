@@ -15,6 +15,14 @@ class MountainController < ApplicationController
     end
   end
 
+  # post '/mountains' do 
+  #   if params[:name] == ""
+  #     redirect to "/mountains/new"
+  #   else 
+
+
+  # end
+
  post '/mountains' do
    if params[:content] == "" || params[:name] == ""
       redirect to "/mountains/new"

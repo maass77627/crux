@@ -11,6 +11,9 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem "httparty"
+gem 'bigdecimal', '~> 1.4'
+#gem 'bootstrap', '~> 5.0.2'
 
 group :test do
   gem 'rspec'
